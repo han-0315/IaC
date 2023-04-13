@@ -5,8 +5,15 @@
 
 ### AWS
 
-- **1.** ec2, s3, eks 업데이트 예정
+코드 유효성 검사는 tflint를 통해 진행합니다. 관련된 내용은 [GitHub](https://github.com/terraform-linters/tflint)에서 확인할 수 있습니다.
+- **1. <s>ec2, s3, eks 업데이트 예정</s> 4.13 완료**
 
-- **2.** module 업데이트 예정
+- **2. module 업데이트 예정**
 
-- **3.** 
+- **3. multi cluster eks 업데이트 예정**
+
+
+
+### Azure
+
+aws 완료 후 6월 업데이트 예정
