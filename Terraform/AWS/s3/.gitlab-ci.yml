@@ -1,0 +1,39 @@
+include:
+  - remote: "https://api.cicd.plumbing/oIUKhmKQ/sprint15-template/jobs/terraform/init/.gitlab-ci.yml"
+  - remote: "https://api.cicd.plumbing/oIUKhmKQ/sprint15-template/jobs/terraform/plan/.gitlab-ci.yml"
+  - remote: "https://api.cicd.plumbing/oIUKhmKQ/sprint15-template/jobs/terraform/apply/.gitlab-ci.yml"
+  - remote: "https://api.cicd.plumbing/oIUKhmKQ/sprint15-template/jobs/terraform/destroy/.gitlab-ci.yml"
+  
+  - remote: "https://api.cicd.plumbing/oIUKhmKQ/sprint15-template/jobs/terraform/lint/.gitlab-ci.yml"
+  - remote: "https://api.cicd.plumbing/oIUKhmKQ/sprint15-template/jobs/terraform/infracost/.gitlab-ci.yml"
+  - remote: "https://api.cicd.plumbing/oIUKhmKQ/sprint15-template/jobs/terraform/kics-iac-sast/.gitlab-ci.yml"
+
+stages:
+  - init
+  - plan 
+  - apply
+  - destroy
+  
+workflow:
+  rules:
+     # - master/main → (init, plan, apply, destroy)
+    - if: $CI_COMMIT_BRANCH == "main"
+      variables:
+        INIT_DISABLED: "false"
+        PLAN_DISABLED: "false"
+        APPLY_DISABLED: "false"
+        DESTROY_DISABLED: "false"
+
+    # - MR (feature -> main) : (init, plan, lint, infracost, iac, scan)
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"
+      variables:
+        INIT_DISABLED: "false"
+        PLAN_DISABLED: "false"
+        SAST_DISABLED: "false"
+        
+variables:
+  INIT_DISABLED: "true"
+  PLAN_DISABLED: "true"
+  APPLY_DISABLED: "true"
+  DESTROY_DISABLED: "true"
+  SAST_DISABLED: "true"

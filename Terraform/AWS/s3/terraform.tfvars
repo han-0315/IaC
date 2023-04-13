@@ -1,0 +1,9 @@
+region               = "ap-northeast-2"
+namespace            = "devops-kit-s3-cf"
+environment          = "dev"
+purpose              = "Terraform S3 + CloudFront"
+owner                = "kane"
+contents_bucket_name = "devops-kit-com-s3-contents"
+logging_bucket_name  = "devops-kit-com-s3-logging"
+enable_logging       = true
+enable_versioning    = true
