@@ -1,4 +1,4 @@
-# Iac
+# IaC
 해당 리포지토리는 Iac 관련 코드와 자료 정리를 위해 만들어졌습니다.
 
 ## Terraform
@@ -10,10 +10,8 @@
 
 - **2. module 업데이트 예정**
 
-- **3. multi cluster eks 업데이트 예정**
-
+- **3. eks 스터디 진행 with CloudnetTeam (4/21 ~ 6/2)**
 
 
 ### Azure
-
 aws 완료 후 6월 업데이트 예정
