@@ -38,3 +38,17 @@ apt-get install chrony -y
 # chrony.service is started and enabled automatically.
 
 
+# Install vim
+apt-get install -y vim
+
+# alias 설정
+echo "alias vi=vim" >> /home/ubuntu/.bashrc
+echo "sudo su -" >> /home/ubuntu/.bashrc
+
+# Install utils 
+apt-get update -y 
+apt-get install tree jq git htop lynx -y
+
+# bash-completion
+apt-get install bash-completion -y
+echo "source /etc/profile.d/bash_completion.sh" >> /home/ubuntu/.bashrc

@@ -8,6 +8,7 @@ locals {
 }
 
 provider "aws" {
+  profile = "infograb"
   region = "ap-northeast-1"
 }
 
