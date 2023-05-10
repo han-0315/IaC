@@ -7,11 +7,6 @@ locals {
   }
 }
 
-provider "aws" {
-  profile = "infograb"
-  region = "ap-northeast-1"
-}
-
 resource "aws_vpc" "vpc" {
   cidr_block = "192.169.0.0/16"
 

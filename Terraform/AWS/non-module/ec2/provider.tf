@@ -8,3 +8,7 @@ terraform {
   required_version = ">= 0.13"
 }
 
+provider "aws" {
+  profile = "infograb"
+  region = "ap-northeast-1"
+}
