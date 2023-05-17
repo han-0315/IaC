@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+# 해당 `tftpl` 파일은 기본적인 세팅과 Docker, Docker-compose를 제공합니다.
+set -Eeuxo pipefail
+
+# Set up the repository
+apt-get update
+sudo apt-get install -y \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release \
+    jq \
+    tree \
+    git \
+    htop \
+    upzip
+
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+    gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Install Docker Engine
+apt-get update
+apt-get install -y docker-ce docker-ce-cli containerd.io
+
+
+# containerd 버전 업그레이드
+apt-get remove containerd
+apt-get update
+apt-get install -y containerd.io
+sudo rm /etc/containerd/config.toml
+sudo systemctl restart containerd
+
+# Add user to the docker group
+usermod -a -G docker ubuntu
+
+# Install Docker Compose
+curl \
+    -SL "https://github.com/docker/compose/releases/download/v2.6.1/docker-compose-$(uname -s)-$(uname -m)" \
+    -o /usr/local/bin/docker-compose
+ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+# Set Timezone
+timedatectl set-timezone 'Asia/Seoul'
+
+# Install Chrony
+apt-get update -y
+apt-get install chrony -y
+# chrony.service is started and enabled automatically.
+
+
+# Install vim
+apt-get install -y vim
+
+# alias 설정
+echo "alias vi=vim" >> /home/ubuntu/.bashrc
+echo "sudo su -" >> /home/ubuntu/.bashrc
+
+# Install utils 
+apt-get update -y 
+apt-get install tree jq git htop lynx -y
+
+# bash-completion
+apt-get install bash-completion -y
+echo "source /etc/profile.d/bash_completion.sh" >> /home/ubuntu/.bashrc
+
+# helm install
+curl -s https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+# yaml highlighter
+wget https://github.com/andreazorzetto/yh/releases/download/v0.4.0/yh-linux-amd64.zip
+unzip yh-linux-amd64.zip
+sudo mv yh /usr/local/bin/
+
+# Install krew
+curl -LO https://github.com/kubernetes-sigs/krew/releases/download/v0.4.3/krew-linux_amd64.tar.gz
+tar zxvf krew-linux_amd64.tar.gz
+./krew-linux_amd64 install krew
+export PATH="$PATH:/root/.krew/bin"
+echo 'export PATH="$PATH:/root/.krew/bin"' >> /etc/profile
+
+## 클러스터 설치 전 docker cgroups 변경
+sed -i 's/^ExecStart=\/usr\/bin\/dockerd -H fd:\/\/ --containerd=\/run\/containerd\/containerd.sock$/ExecStart=\/usr\/bin\/dockerd -H fd:\/\/ --containerd=\/run\/containerd\/containerd.sock --exec-opt native.cgroupdriver=systemd/' /lib/systemd/system/docker.service
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+# kubelet kubeadm kubectl 설치
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+# Google Cloud Public Key 발급
+sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+# 쿠버네티스 리포지토리 생성
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+# kubelet, kubeadm, kubectl 설치
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+
+# kubeadm 초기화, 옵션에 대한 설명은 별도로 정리(CIDR은 calico의 필수값)
+sudo su -
+kubeadm init -pod-network-cidr=192.168.0.0/16
+
+# 컨트롤 옵션
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+# 스케줄링 taint 
+## 라벨의 내용이 다음과 같음(node-role.kubernetes.io/control-plane=), 다른 조건일 경우 label 확인
+kubectl taint nodes --all node-role.kubernetes.io/control-plane-
+
+# CNI(calico)설치
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml
+
+# CSI(Local Path Provisioner)설치
+curl -s -O https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+kubectl apply -f local-path-storage.yaml
+
+
+
+
+

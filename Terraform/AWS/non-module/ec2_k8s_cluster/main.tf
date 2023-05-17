@@ -85,6 +85,8 @@ resource "aws_security_group" "web_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # 포트 추가
+
   egress {
     from_port   = 0
     to_port     = 0
