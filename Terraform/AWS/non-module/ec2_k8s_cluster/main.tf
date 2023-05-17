@@ -84,9 +84,54 @@ resource "aws_security_group" "web_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-  # 포트 추가
-
+  igress {
+    from_port   = var.api_server_port
+    to_port     = var.api_server_port
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  igress {
+    from_port   = var.etcd_client_port
+    to_port     = var.etcd_client_port
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  igress {
+    from_port   = var.etcd_peer_port
+    to_port     = var.etcd_peer_port
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  igress {
+    from_port   = var.kube_scheduler_port
+    to_port     = var.kube_scheduler_port
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  igress {
+    from_port   = var.kube_controller_manager_port
+    to_port     = var.kube_controller_manager_port
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  igress {
+    from_port   = var.kubelet_port
+    to_port     = var.kubelet_port
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  igress {
+    from_port   = var.kube_proxy_port
+    to_port     = var.kube_proxy_port
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  igress {
+    from_port   = var.kubectl_port
+    to_port     = var.kubectl_port
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   egress {
     from_port   = 0
     to_port     = 0

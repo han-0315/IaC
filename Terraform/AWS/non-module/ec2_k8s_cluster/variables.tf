@@ -24,9 +24,43 @@ variable "ssh_port" {
   type        = number
   description = "SSH port"
 }
-
-variable "http_port" {
-  default     = 80
+variable "api_server_port" {
+  default     = 6443
+  type        = number
+  description = "SSH port"
+}
+variable "etcd_client_port" {
+  default     = 2379
+  type        = number
+  description = "SSH port"
+}
+variable "etcd_peer_port" {
+  default     = 2380
+  type        = number
+  description = "SSH port"
+}
+variable "kube_scheduler_port" {
+  default     = 10251
+  type        = number
+  description = "SSH port"
+}
+variable "kube_controller_manager_port" {
+  default     = 10252
+  type        = number
+  description = "HTTP port"
+}
+variable "kubelet_port" {
+  default     = 10255
+  type        = number
+  description = "HTTP port"
+}
+variable "kube_proxy_port" {
+  default     = 10250
+  type        = number
+  description = "HTTP port"
+}
+variable "kubectl_port" {
+  default     = 8080
   type        = number
   description = "HTTP port"
 }
