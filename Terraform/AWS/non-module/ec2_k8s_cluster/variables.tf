@@ -24,6 +24,11 @@ variable "ssh_port" {
   type        = number
   description = "SSH port"
 }
+variable "http_port" {
+  default     = 80
+  type        = number
+  description = "SSH port"
+}
 variable "api_server_port" {
   default     = 6443
   type        = number

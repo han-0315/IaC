@@ -84,61 +84,63 @@ resource "aws_security_group" "web_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  igress {
+
+  ingress {
     from_port   = var.api_server_port
     to_port     = var.api_server_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  igress {
+  ingress {
     from_port   = var.etcd_client_port
     to_port     = var.etcd_client_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  igress {
+  ingress {
     from_port   = var.etcd_peer_port
     to_port     = var.etcd_peer_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  igress {
+  ingress {
     from_port   = var.kube_scheduler_port
     to_port     = var.kube_scheduler_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  igress {
+  ingress {
     from_port   = var.kube_controller_manager_port
     to_port     = var.kube_controller_manager_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  igress {
+  ingress {
     from_port   = var.kubelet_port
     to_port     = var.kubelet_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  igress {
+  ingress {
     from_port   = var.kube_proxy_port
     to_port     = var.kube_proxy_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  igress {
+  ingress {
     from_port   = var.kubectl_port
     to_port     = var.kubectl_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
+
   tags = merge(
     {
       Name = "${var.namespace}-web-sg"
@@ -179,18 +181,36 @@ data "aws_ami" "ubuntu" {
   }
 }
 
-resource "aws_instance" "app" {
+resource "aws_instance" "master" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.ec2_instance_type
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.web_sg.id]
   subnet_id              = aws_subnet.public_subnet.id
 
-  user_data = base64encode(templatefile("${path.module}/user_data/ubuntu_kubeadm_master.tftpl", {}))
+  user_data = base64encode(templatefile("${path.module}/user_data/kubeadm_master.tftpl", {}))
 
   tags = merge(
     {
-      Name = "${var.namespace}-app"
+      Name = "${var.namespace}-master"
+    },
+    local.additional_tags
+  )
+
+}
+
+resource "aws_instance" "worker" {
+  ami                    = data.aws_ami.ubuntu.id
+  instance_type          = var.ec2_instance_type
+  key_name               = var.key_name
+  vpc_security_group_ids = [aws_security_group.web_sg.id]
+  subnet_id              = aws_subnet.public_subnet.id
+
+  user_data = base64encode(templatefile("${path.module}/user_data/kubeadm_worker.tftpl", {}))
+
+  tags = merge(
+    {
+      Name = "${var.namespace}-worker"
     },
     local.additional_tags
   )

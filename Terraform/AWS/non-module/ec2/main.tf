@@ -139,7 +139,7 @@ resource "aws_instance" "app" {
   vpc_security_group_ids = [aws_security_group.web_sg.id]
   subnet_id              = aws_subnet.public_subnet.id
 
-  user_data = base64encode(templatefile("${path.module}/user_data/ubuntu_kubeadm_master.tftpl", {}))
+  user_data = base64encode(templatefile("${path.module}/user_data/ubuntu_docker.tftpl", {}))
 
   tags = merge(
     {

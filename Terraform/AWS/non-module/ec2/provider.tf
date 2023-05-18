@@ -9,6 +9,6 @@ terraform {
 }
 
 provider "aws" {
-  profile = "infograb"
+  profile = "default"
   region = "ap-northeast-1"
 }
