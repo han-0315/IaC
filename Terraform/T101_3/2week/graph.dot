@@ -1,0 +1,51 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_instance.kane_ec2 (expand)" [label = "aws_instance.kane_ec2", shape = "box"]
+		"[root] aws_internet_gateway.kane_igw (expand)" [label = "aws_internet_gateway.kane_igw", shape = "box"]
+		"[root] aws_route.kane_defaultroute (expand)" [label = "aws_route.kane_defaultroute", shape = "box"]
+		"[root] aws_route_table.kane_rt (expand)" [label = "aws_route_table.kane_rt", shape = "box"]
+		"[root] aws_route_table_association.kane_rtassociation1 (expand)" [label = "aws_route_table_association.kane_rtassociation1", shape = "box"]
+		"[root] aws_route_table_association.kane_rtassociation2 (expand)" [label = "aws_route_table_association.kane_rtassociation2", shape = "box"]
+		"[root] aws_security_group.kane_sg (expand)" [label = "aws_security_group.kane_sg", shape = "box"]
+		"[root] aws_security_group_rule.kane_sginbound (expand)" [label = "aws_security_group_rule.kane_sginbound", shape = "box"]
+		"[root] aws_security_group_rule.kane_sgoutbound (expand)" [label = "aws_security_group_rule.kane_sgoutbound", shape = "box"]
+		"[root] aws_subnet.kane_subnet1 (expand)" [label = "aws_subnet.kane_subnet1", shape = "box"]
+		"[root] aws_subnet.kane_subnet2 (expand)" [label = "aws_subnet.kane_subnet2", shape = "box"]
+		"[root] aws_vpc.kane_vpc (expand)" [label = "aws_vpc.kane_vpc", shape = "box"]
+		"[root] data.aws_ami.amazonlinux2 (expand)" [label = "data.aws_ami.amazonlinux2", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] aws_instance.kane_ec2 (expand)" -> "[root] aws_internet_gateway.kane_igw (expand)"
+		"[root] aws_instance.kane_ec2 (expand)" -> "[root] aws_security_group.kane_sg (expand)"
+		"[root] aws_instance.kane_ec2 (expand)" -> "[root] aws_subnet.kane_subnet1 (expand)"
+		"[root] aws_instance.kane_ec2 (expand)" -> "[root] data.aws_ami.amazonlinux2 (expand)"
+		"[root] aws_internet_gateway.kane_igw (expand)" -> "[root] aws_vpc.kane_vpc (expand)"
+		"[root] aws_route.kane_defaultroute (expand)" -> "[root] aws_internet_gateway.kane_igw (expand)"
+		"[root] aws_route.kane_defaultroute (expand)" -> "[root] aws_route_table.kane_rt (expand)"
+		"[root] aws_route_table.kane_rt (expand)" -> "[root] aws_vpc.kane_vpc (expand)"
+		"[root] aws_route_table_association.kane_rtassociation1 (expand)" -> "[root] aws_route_table.kane_rt (expand)"
+		"[root] aws_route_table_association.kane_rtassociation1 (expand)" -> "[root] aws_subnet.kane_subnet1 (expand)"
+		"[root] aws_route_table_association.kane_rtassociation2 (expand)" -> "[root] aws_route_table.kane_rt (expand)"
+		"[root] aws_route_table_association.kane_rtassociation2 (expand)" -> "[root] aws_subnet.kane_subnet2 (expand)"
+		"[root] aws_security_group.kane_sg (expand)" -> "[root] aws_vpc.kane_vpc (expand)"
+		"[root] aws_security_group_rule.kane_sginbound (expand)" -> "[root] aws_security_group.kane_sg (expand)"
+		"[root] aws_security_group_rule.kane_sgoutbound (expand)" -> "[root] aws_security_group.kane_sg (expand)"
+		"[root] aws_subnet.kane_subnet1 (expand)" -> "[root] aws_vpc.kane_vpc (expand)"
+		"[root] aws_subnet.kane_subnet2 (expand)" -> "[root] aws_vpc.kane_vpc (expand)"
+		"[root] aws_vpc.kane_vpc (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] data.aws_ami.amazonlinux2 (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] output.aws_vpc_id (expand)" -> "[root] aws_vpc.kane_vpc (expand)"
+		"[root] output.kane_ec2_public_ip (expand)" -> "[root] aws_instance.kane_ec2 (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.kane_ec2 (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route.kane_defaultroute (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.kane_rtassociation1 (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.kane_rtassociation2 (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group_rule.kane_sginbound (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group_rule.kane_sgoutbound (expand)"
+		"[root] root" -> "[root] output.aws_vpc_id (expand)"
+		"[root] root" -> "[root] output.kane_ec2_public_ip (expand)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}
+

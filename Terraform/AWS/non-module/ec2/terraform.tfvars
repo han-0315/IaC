@@ -1,11 +1,11 @@
-region             = "ap-northeast-1"
-namespace          = "IG-SBX-TEST-EC2"
+region             = "ap-northeast-2"
+namespace          = "TEST-EC2"
 vpc_cidr           = "192.169.0.0/16"
 public_subnet_cidr = "192.169.1.0/24"
 ssh_port           = 22
 http_port          = 80
-ec2_instance_type  = "t3.small"
-key_name           = "Tokyo"
+ec2_instance_type  = "t2.small"
+key_name           = "m1"
 environment        = "sbx"
 purpose            = "test"
 owner              = "kane"

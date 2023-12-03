@@ -1,0 +1,294 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1624pt" height="404pt" viewBox="0.00 0.00 1623.79 404.00">
+<g id="graph0" class="graph" transform="translate(122.60349154614875,394.2158268135165) scale(0.8028258849836943)" data-name="">
+<polygon fill="white" stroke="none" points="-4,4 -4,-400 1619.79,-400 1619.79,4 -4,4" style=""/>
+<!-- [root] aws_instance.kane_ec2 (expand) -->
+<g id="node1" class="node" pointer-events="visible" data-name="[root] aws_instance.kane_ec2 (expand)">
+
+<polygon fill="none" stroke="black" points="694.89,-252 547.89,-252 547.89,-216 694.89,-216 694.89,-252" style=""/>
+<text text-anchor="middle" x="621.39" y="-229.8" font-family="Times,serif" font-size="14.00" style="">aws_instance.kane_ec2</text>
+</g>
+<!-- [root] aws_internet_gateway.kane_igw (expand) -->
+<g id="node2" class="node" pointer-events="visible" data-name="[root] aws_internet_gateway.kane_igw (expand)">
+
+<polygon fill="none" stroke="black" points="1027.99,-180 828.79,-180 828.79,-144 1027.99,-144 1027.99,-180" style=""/>
+<text text-anchor="middle" x="928.39" y="-157.8" font-family="Times,serif" font-size="14.00" style="">aws_internet_gateway.kane_igw</text>
+</g>
+<!-- [root] aws_instance.kane_ec2 (expand)&#45;&gt;[root] aws_internet_gateway.kane_igw (expand) -->
+<g id="edge1" class="edge" data-name="[root] aws_instance.kane_ec2 (expand)-&gt;[root] aws_internet_gateway.kane_igw (expand)">
+
+<path fill="none" stroke="black" d="M695.32,-216.14C739.08,-206.17 794.77,-193.47 840.74,-182.99" style=""/>
+<polygon fill="black" stroke="black" points="841.45,-186.41 850.43,-180.78 839.9,-179.59 841.45,-186.41" style=""/>
+</g>
+<!-- [root] aws_security_group.kane_sg (expand) -->
+<g id="node7" class="node" pointer-events="visible" data-name="[root] aws_security_group.kane_sg (expand)">
+
+<polygon fill="none" stroke="black" points="541.52,-180 363.26,-180 363.26,-144 541.52,-144 541.52,-180" style=""/>
+<text text-anchor="middle" x="452.39" y="-157.8" font-family="Times,serif" font-size="14.00" style="">aws_security_group.kane_sg</text>
+</g>
+<!-- [root] aws_instance.kane_ec2 (expand)&#45;&gt;[root] aws_security_group.kane_sg (expand) -->
+<g id="edge2" class="edge" data-name="[root] aws_instance.kane_ec2 (expand)-&gt;[root] aws_security_group.kane_sg (expand)">
+
+<path fill="none" stroke="black" d="M579.18,-215.52C556.61,-206.17 528.62,-194.57 504.69,-184.66" style=""/>
+<polygon fill="black" stroke="black" points="506.33,-181.55 495.75,-180.96 503.65,-188.02 506.33,-181.55" style=""/>
+</g>
+<!-- [root] aws_subnet.kane_subnet1 (expand) -->
+<g id="node10" class="node" pointer-events="visible" data-name="[root] aws_subnet.kane_subnet1 (expand)">
+
+<polygon fill="none" stroke="black" points="811.2,-180 649.59,-180 649.59,-144 811.2,-144 811.2,-180" style=""/>
+<text text-anchor="middle" x="730.39" y="-157.8" font-family="Times,serif" font-size="14.00" style="">aws_subnet.kane_subnet1</text>
+</g>
+<!-- [root] aws_instance.kane_ec2 (expand)&#45;&gt;[root] aws_subnet.kane_subnet1 (expand) -->
+<g id="edge3" class="edge" data-name="[root] aws_instance.kane_ec2 (expand)-&gt;[root] aws_subnet.kane_subnet1 (expand)">
+
+<path fill="none" stroke="black" d="M648.62,-215.52C662.37,-206.68 679.26,-195.84 694.11,-186.3" style=""/>
+<polygon fill="black" stroke="black" points="695.72,-189.43 702.24,-181.08 691.94,-183.54 695.72,-189.43" style=""/>
+</g>
+<!-- [root] data.aws_ami.amazonlinux2 (expand) -->
+<g id="node13" class="node" pointer-events="visible" data-name="[root] data.aws_ami.amazonlinux2 (expand)">
+
+<polygon fill="none" stroke="black" points="779.29,-108 603.5,-108 603.5,-72 779.29,-72 779.29,-108" style=""/>
+<text text-anchor="middle" x="691.39" y="-85.8" font-family="Times,serif" font-size="14.00" style="">data.aws_ami.amazonlinux2</text>
+</g>
+<!-- [root] aws_instance.kane_ec2 (expand)&#45;&gt;[root] data.aws_ami.amazonlinux2 (expand) -->
+<g id="edge4" class="edge" data-name="[root] aws_instance.kane_ec2 (expand)-&gt;[root] data.aws_ami.amazonlinux2 (expand)">
+
+<path fill="none" stroke="black" d="M622.28,-215.64C623.86,-196.97 628.24,-166.88 640.39,-144 645.77,-133.87 653.65,-124.33 661.62,-116.2" style=""/>
+<polygon fill="black" stroke="black" points="663.98,-118.79 668.76,-109.34 659.12,-113.75 663.98,-118.79" style=""/>
+</g>
+<!-- [root] aws_vpc.kane_vpc (expand) -->
+<g id="node12" class="node" pointer-events="visible" data-name="[root] aws_vpc.kane_vpc (expand)">
+
+<polygon fill="none" stroke="black" points="989.52,-108 867.26,-108 867.26,-72 989.52,-72 989.52,-108" style=""/>
+<text text-anchor="middle" x="928.39" y="-85.8" font-family="Times,serif" font-size="14.00" style="">aws_vpc.kane_vpc</text>
+</g>
+<!-- [root] aws_internet_gateway.kane_igw (expand)&#45;&gt;[root] aws_vpc.kane_vpc (expand) -->
+<g id="edge5" class="edge" data-name="[root] aws_internet_gateway.kane_igw (expand)-&gt;[root] aws_vpc.kane_vpc (expand)">
+
+<path fill="none" stroke="black" d="M928.39,-143.7C928.39,-136.41 928.39,-127.73 928.39,-119.54" style=""/>
+<polygon fill="black" stroke="black" points="931.89,-119.62 928.39,-109.62 924.89,-119.62 931.89,-119.62" style=""/>
+</g>
+<!-- [root] aws_route.kane_defaultroute (expand) -->
+<g id="node3" class="node" pointer-events="visible" data-name="[root] aws_route.kane_defaultroute (expand)">
+
+<polygon fill="none" stroke="black" points="1200.49,-252 1022.29,-252 1022.29,-216 1200.49,-216 1200.49,-252" style=""/>
+<text text-anchor="middle" x="1111.39" y="-229.8" font-family="Times,serif" font-size="14.00" style="">aws_route.kane_defaultroute</text>
+</g>
+<!-- [root] aws_route.kane_defaultroute (expand)&#45;&gt;[root] aws_internet_gateway.kane_igw (expand) -->
+<g id="edge6" class="edge" data-name="[root] aws_route.kane_defaultroute (expand)-&gt;[root] aws_internet_gateway.kane_igw (expand)">
+
+<path fill="none" stroke="black" d="M1065.69,-215.52C1041.03,-206.08 1010.39,-194.37 984.32,-184.39" style=""/>
+<polygon fill="black" stroke="black" points="985.84,-181.23 975.25,-180.92 983.34,-187.76 985.84,-181.23" style=""/>
+</g>
+<!-- [root] aws_route_table.kane_rt (expand) -->
+<g id="node4" class="node" pointer-events="visible" data-name="[root] aws_route_table.kane_rt (expand)">
+
+<polygon fill="none" stroke="black" points="1199.12,-180 1045.67,-180 1045.67,-144 1199.12,-144 1199.12,-180" style=""/>
+<text text-anchor="middle" x="1122.39" y="-157.8" font-family="Times,serif" font-size="14.00" style="">aws_route_table.kane_rt</text>
+</g>
+<!-- [root] aws_route.kane_defaultroute (expand)&#45;&gt;[root] aws_route_table.kane_rt (expand) -->
+<g id="edge7" class="edge" data-name="[root] aws_route.kane_defaultroute (expand)-&gt;[root] aws_route_table.kane_rt (expand)">
+
+<path fill="none" stroke="black" d="M1114.11,-215.7C1115.27,-208.32 1116.65,-199.52 1117.95,-191.25" style=""/>
+<polygon fill="black" stroke="black" points="1121.37,-192.02 1119.47,-181.6 1114.46,-190.93 1121.37,-192.02" style=""/>
+</g>
+<!-- [root] aws_route_table.kane_rt (expand)&#45;&gt;[root] aws_vpc.kane_vpc (expand) -->
+<g id="edge8" class="edge" data-name="[root] aws_route_table.kane_rt (expand)-&gt;[root] aws_vpc.kane_vpc (expand)">
+
+<path fill="none" stroke="black" d="M1073.94,-143.52C1047.68,-134.04 1015.03,-122.26 987.31,-112.26" style=""/>
+<polygon fill="black" stroke="black" points="988.58,-109 977.99,-108.9 986.21,-115.58 988.58,-109" style=""/>
+</g>
+<!-- [root] aws_route_table_association.kane_rtassociation1 (expand) -->
+<g id="node5" class="node" pointer-events="visible" data-name="[root] aws_route_table_association.kane_rtassociation1 (expand)">
+
+<polygon fill="none" stroke="black" points="1004.03,-252 712.75,-252 712.75,-216 1004.03,-216 1004.03,-252" style=""/>
+<text text-anchor="middle" x="858.39" y="-229.8" font-family="Times,serif" font-size="14.00" style="">aws_route_table_association.kane_rtassociation1</text>
+</g>
+<!-- [root] aws_route_table_association.kane_rtassociation1 (expand)&#45;&gt;[root] aws_route_table.kane_rt (expand) -->
+<g id="edge9" class="edge" data-name="[root] aws_route_table_association.kane_rtassociation1 (expand)-&gt;[root] aws_route_table.kane_rt (expand)">
+
+<path fill="none" stroke="black" d="M924.33,-215.52C961.32,-205.71 1007.64,-193.43 1046.19,-183.21" style=""/>
+<polygon fill="black" stroke="black" points="1046.61,-186.72 1055.37,-180.77 1044.81,-179.95 1046.61,-186.72" style=""/>
+</g>
+<!-- [root] aws_route_table_association.kane_rtassociation1 (expand)&#45;&gt;[root] aws_subnet.kane_subnet1 (expand) -->
+<g id="edge10" class="edge" data-name="[root] aws_route_table_association.kane_rtassociation1 (expand)-&gt;[root] aws_subnet.kane_subnet1 (expand)">
+
+<path fill="none" stroke="black" d="M826.42,-215.52C809.96,-206.51 789.68,-195.42 772.01,-185.76" style=""/>
+<polygon fill="black" stroke="black" points="773.73,-182.71 763.28,-180.99 770.38,-188.86 773.73,-182.71" style=""/>
+</g>
+<!-- [root] aws_route_table_association.kane_rtassociation2 (expand) -->
+<g id="node6" class="node" pointer-events="visible" data-name="[root] aws_route_table_association.kane_rtassociation2 (expand)">
+
+<polygon fill="none" stroke="black" points="1510.03,-252 1218.75,-252 1218.75,-216 1510.03,-216 1510.03,-252" style=""/>
+<text text-anchor="middle" x="1364.39" y="-229.8" font-family="Times,serif" font-size="14.00" style="">aws_route_table_association.kane_rtassociation2</text>
+</g>
+<!-- [root] aws_route_table_association.kane_rtassociation2 (expand)&#45;&gt;[root] aws_route_table.kane_rt (expand) -->
+<g id="edge11" class="edge" data-name="[root] aws_route_table_association.kane_rtassociation2 (expand)-&gt;[root] aws_route_table.kane_rt (expand)">
+
+<path fill="none" stroke="black" d="M1303.95,-215.52C1270.33,-205.79 1228.3,-193.64 1193.15,-183.47" style=""/>
+<polygon fill="black" stroke="black" points="1194.52,-180.22 1183.94,-180.8 1192.57,-186.94 1194.52,-180.22" style=""/>
+</g>
+<!-- [root] aws_subnet.kane_subnet2 (expand) -->
+<g id="node11" class="node" pointer-events="visible" data-name="[root] aws_subnet.kane_subnet2 (expand)">
+
+<polygon fill="none" stroke="black" points="1412.2,-180 1250.59,-180 1250.59,-144 1412.2,-144 1412.2,-180" style=""/>
+<text text-anchor="middle" x="1331.39" y="-157.8" font-family="Times,serif" font-size="14.00" style="">aws_subnet.kane_subnet2</text>
+</g>
+<!-- [root] aws_route_table_association.kane_rtassociation2 (expand)&#45;&gt;[root] aws_subnet.kane_subnet2 (expand) -->
+<g id="edge12" class="edge" data-name="[root] aws_route_table_association.kane_rtassociation2 (expand)-&gt;[root] aws_subnet.kane_subnet2 (expand)">
+
+<path fill="none" stroke="black" d="M1356.23,-215.7C1352.64,-208.07 1348.32,-198.92 1344.31,-190.4" style=""/>
+<polygon fill="black" stroke="black" points="1347.53,-189.03 1340.1,-181.47 1341.2,-192.01 1347.53,-189.03" style=""/>
+</g>
+<!-- [root] aws_security_group.kane_sg (expand)&#45;&gt;[root] aws_vpc.kane_vpc (expand) -->
+<g id="edge13" class="edge" data-name="[root] aws_security_group.kane_sg (expand)-&gt;[root] aws_vpc.kane_vpc (expand)">
+
+<path fill="none" stroke="black" d="M541.92,-147.83C632.68,-134.49 771.4,-114.09 855.62,-101.7" style=""/>
+<polygon fill="black" stroke="black" points="856,-105.18 865.38,-100.27 854.98,-98.26 856,-105.18" style=""/>
+</g>
+<!-- [root] aws_security_group_rule.kane_sginbound (expand) -->
+<g id="node8" class="node" pointer-events="visible" data-name="[root] aws_security_group_rule.kane_sginbound (expand)">
+
+<polygon fill="none" stroke="black" points="252.67,-252 0.11,-252 0.11,-216 252.67,-216 252.67,-252" style=""/>
+<text text-anchor="middle" x="126.39" y="-229.8" font-family="Times,serif" font-size="14.00" style="">aws_security_group_rule.kane_sginbound</text>
+</g>
+<!-- [root] aws_security_group_rule.kane_sginbound (expand)&#45;&gt;[root] aws_security_group.kane_sg (expand) -->
+<g id="edge14" class="edge" data-name="[root] aws_security_group_rule.kane_sginbound (expand)-&gt;[root] aws_security_group.kane_sg (expand)">
+
+<path fill="none" stroke="black" d="M207.81,-215.52C254.09,-205.58 312.19,-193.1 360.15,-182.81" style=""/>
+<polygon fill="black" stroke="black" points="360.64,-186.28 369.68,-180.76 359.17,-179.44 360.64,-186.28" style=""/>
+</g>
+<!-- [root] aws_security_group_rule.kane_sgoutbound (expand) -->
+<g id="node9" class="node" pointer-events="visible" data-name="[root] aws_security_group_rule.kane_sgoutbound (expand)">
+
+<polygon fill="none" stroke="black" points="530.17,-252 270.61,-252 270.61,-216 530.17,-216 530.17,-252" style=""/>
+<text text-anchor="middle" x="400.39" y="-229.8" font-family="Times,serif" font-size="14.00" style="">aws_security_group_rule.kane_sgoutbound</text>
+</g>
+<!-- [root] aws_security_group_rule.kane_sgoutbound (expand)&#45;&gt;[root] aws_security_group.kane_sg (expand) -->
+<g id="edge15" class="edge" data-name="[root] aws_security_group_rule.kane_sgoutbound (expand)-&gt;[root] aws_security_group.kane_sg (expand)">
+
+<path fill="none" stroke="black" d="M413.25,-215.7C419.16,-207.73 426.32,-198.1 432.88,-189.26" style=""/>
+<polygon fill="black" stroke="black" points="435.63,-191.43 438.78,-181.32 430.01,-187.26 435.63,-191.43" style=""/>
+</g>
+<!-- [root] aws_subnet.kane_subnet1 (expand)&#45;&gt;[root] aws_vpc.kane_vpc (expand) -->
+<g id="edge16" class="edge" data-name="[root] aws_subnet.kane_subnet1 (expand)-&gt;[root] aws_vpc.kane_vpc (expand)">
+
+<path fill="none" stroke="black" d="M779.84,-143.52C806.76,-134 840.26,-122.16 868.63,-112.13" style=""/>
+<polygon fill="black" stroke="black" points="869.54,-115.52 877.8,-108.89 867.2,-108.92 869.54,-115.52" style=""/>
+</g>
+<!-- [root] aws_subnet.kane_subnet2 (expand)&#45;&gt;[root] aws_vpc.kane_vpc (expand) -->
+<g id="edge17" class="edge" data-name="[root] aws_subnet.kane_subnet2 (expand)-&gt;[root] aws_vpc.kane_vpc (expand)">
+
+<path fill="none" stroke="black" d="M1250.32,-146.92C1177.34,-134.24 1071.07,-115.78 1000.87,-103.59" style=""/>
+<polygon fill="black" stroke="black" points="1001.86,-100.21 991.41,-101.95 1000.66,-107.11 1001.86,-100.21" style=""/>
+</g>
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] -->
+<g id="node14" class="node" pointer-events="visible" data-name="[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]">
+
+<polygon fill="none" stroke="black" points="774.39,-36 499.85,-18 774.39,0 1048.93,-18 774.39,-36" style=""/>
+<text text-anchor="middle" x="774.39" y="-13.8" font-family="Times,serif" font-size="14.00" style="">provider["registry.terraform.io/hashicorp/aws"]</text>
+</g>
+<!-- [root] aws_vpc.kane_vpc (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] -->
+<g id="edge18" class="edge" data-name="[root] aws_vpc.kane_vpc (expand)-&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]">
+
+<path fill="none" stroke="black" d="M889.93,-71.52C868.16,-61.62 840.86,-49.21 818.27,-38.94" style=""/>
+<polygon fill="black" stroke="black" points="819.85,-35.82 809.3,-34.87 816.96,-42.19 819.85,-35.82" style=""/>
+</g>
+<!-- [root] data.aws_ami.amazonlinux2 (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] -->
+<g id="edge19" class="edge" data-name="[root] data.aws_ami.amazonlinux2 (expand)-&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]">
+
+<path fill="none" stroke="black" d="M711.91,-71.7C722.36,-62.88 735.23,-52.03 746.56,-42.47" style=""/>
+<polygon fill="black" stroke="black" points="748.7,-45.24 754.09,-36.12 744.19,-39.89 748.7,-45.24" style=""/>
+</g>
+<!-- [root] output.aws_vpc_id (expand) -->
+<g id="node15" class="node" pointer-events="visible" data-name="[root] output.aws_vpc_id (expand)">
+
+<ellipse fill="none" stroke="black" cx="1470.39" cy="-306" rx="145.29" ry="18" style=""/>
+<text text-anchor="middle" x="1470.39" y="-301.8" font-family="Times,serif" font-size="14.00" style="">[root] output.aws_vpc_id (expand)</text>
+</g>
+<!-- [root] output.aws_vpc_id (expand)&#45;&gt;[root] aws_vpc.kane_vpc (expand) -->
+<g id="edge20" class="edge" data-name="[root] output.aws_vpc_id (expand)-&gt;[root] aws_vpc.kane_vpc (expand)">
+
+<path fill="none" stroke="black" d="M1492.54,-287.87C1502.8,-278.52 1513.91,-266 1519.39,-252 1525.22,-237.1 1526.62,-230.28 1519.39,-216 1494.98,-167.78 1471.77,-163.56 1421.39,-144 1346.55,-114.94 1119.02,-100.09 1001.05,-94.17" style=""/>
+<polygon fill="black" stroke="black" points="1001.31,-90.68 991.15,-93.68 1000.97,-97.67 1001.31,-90.68" style=""/>
+</g>
+<!-- [root] output.kane_ec2_public_ip (expand) -->
+<g id="node16" class="node" pointer-events="visible" data-name="[root] output.kane_ec2_public_ip (expand)">
+
+<ellipse fill="none" stroke="black" cx="483.39" cy="-306" rx="177.06" ry="18" style=""/>
+<text text-anchor="middle" x="483.39" y="-301.8" font-family="Times,serif" font-size="14.00" style="">[root] output.kane_ec2_public_ip (expand)</text>
+</g>
+<!-- [root] output.kane_ec2_public_ip (expand)&#45;&gt;[root] aws_instance.kane_ec2 (expand) -->
+<g id="edge21" class="edge" data-name="[root] output.kane_ec2_public_ip (expand)-&gt;[root] aws_instance.kane_ec2 (expand)">
+
+<path fill="none" stroke="black" d="M517.15,-287.88C535.14,-278.75 557.5,-267.41 576.9,-257.57" style=""/>
+<polygon fill="black" stroke="black" points="578.34,-260.76 585.67,-253.12 575.17,-254.52 578.34,-260.76" style=""/>
+</g>
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close) -->
+<g id="node17" class="node" pointer-events="visible" data-name="[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)">
+
+<ellipse fill="none" stroke="black" cx="925.39" cy="-306" rx="247.26" ry="18" style=""/>
+<text text-anchor="middle" x="925.39" y="-301.8" font-family="Times,serif" font-size="14.00" style="">[root] provider["registry.terraform.io/hashicorp/aws"] (close)</text>
+</g>
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_instance.kane_ec2 (expand) -->
+<g id="edge22" class="edge" data-name="[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)-&gt;[root] aws_instance.kane_ec2 (expand)">
+
+<path fill="none" stroke="black" d="M852.96,-288.32C808.99,-278.2 752.66,-265.23 706.56,-254.61" style=""/>
+<polygon fill="black" stroke="black" points="707.38,-251.21 696.85,-252.38 705.81,-258.03 707.38,-251.21" style=""/>
+</g>
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_route.kane_defaultroute (expand) -->
+<g id="edge23" class="edge" data-name="[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)-&gt;[root] aws_route.kane_defaultroute (expand)">
+
+<path fill="none" stroke="black" d="M970.89,-287.88C996.04,-278.41 1027.51,-266.57 1054.29,-256.49" style=""/>
+<polygon fill="black" stroke="black" points="1055.53,-259.76 1063.65,-252.97 1053.06,-253.21 1055.53,-259.76" style=""/>
+</g>
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_route_table_association.kane_rtassociation1 (expand) -->
+<g id="edge24" class="edge" data-name="[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)-&gt;[root] aws_route_table_association.kane_rtassociation1 (expand)">
+
+<path fill="none" stroke="black" d="M908.83,-287.7C900.96,-279.47 891.4,-269.48 882.72,-260.42" style=""/>
+<polygon fill="black" stroke="black" points="885.25,-258 875.81,-253.2 880.2,-262.84 885.25,-258" style=""/>
+</g>
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_route_table_association.kane_rtassociation2 (expand) -->
+<g id="edge25" class="edge" data-name="[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)-&gt;[root] aws_route_table_association.kane_rtassociation2 (expand)">
+
+<path fill="none" stroke="black" d="M1025.28,-289.07C1090.11,-278.73 1174.99,-265.2 1243.61,-254.26" style=""/>
+<polygon fill="black" stroke="black" points="1244.09,-257.73 1253.41,-252.7 1242.99,-250.81 1244.09,-257.73" style=""/>
+</g>
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_security_group_rule.kane_sginbound (expand) -->
+<g id="edge26" class="edge" data-name="[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)-&gt;[root] aws_security_group_rule.kane_sginbound (expand)">
+
+<path fill="none" stroke="black" d="M748.34,-293.07C617.4,-283.73 434.43,-269.58 264.29,-252.27" style=""/>
+<polygon fill="black" stroke="black" points="264.65,-248.79 254.35,-251.26 263.94,-255.76 264.65,-248.79" style=""/>
+</g>
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_security_group_rule.kane_sgoutbound (expand) -->
+<g id="edge27" class="edge" data-name="[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)-&gt;[root] aws_security_group_rule.kane_sgoutbound (expand)">
+
+<path fill="none" stroke="black" d="M810.18,-289.64C731.17,-279.1 625.85,-265.06 541.76,-253.85" style=""/>
+<polygon fill="black" stroke="black" points="542.44,-250.41 532.07,-252.56 541.52,-257.35 542.44,-250.41" style=""/>
+</g>
+<!-- [root] root -->
+<g id="node18" class="node" pointer-events="visible" data-name="[root] root">
+
+<ellipse fill="none" stroke="black" cx="925.39" cy="-378" rx="50.99" ry="18" style=""/>
+<text text-anchor="middle" x="925.39" y="-373.8" font-family="Times,serif" font-size="14.00" style="">[root] root</text>
+</g>
+<!-- [root] root&#45;&gt;[root] output.aws_vpc_id (expand) -->
+<g id="edge28" class="edge" data-name="[root] root-&gt;[root] output.aws_vpc_id (expand)">
+
+<path fill="none" stroke="black" d="M972.8,-370.91C1058.73,-359.87 1242.25,-336.3 1360.8,-321.08" style=""/>
+<polygon fill="black" stroke="black" points="1361.09,-324.57 1370.56,-319.82 1360.19,-317.63 1361.09,-324.57" style=""/>
+</g>
+<!-- [root] root&#45;&gt;[root] output.kane_ec2_public_ip (expand) -->
+<g id="edge29" class="edge" data-name="[root] root-&gt;[root] output.kane_ec2_public_ip (expand)">
+
+<path fill="none" stroke="black" d="M879.75,-369.77C811.29,-358.93 680.17,-338.16 587.53,-323.49" style=""/>
+<polygon fill="black" stroke="black" points="588.34,-320.08 577.92,-321.97 587.25,-326.99 588.34,-320.08" style=""/>
+</g>
+<!-- [root] root&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close) -->
+<g id="edge30" class="edge" data-name="[root] root-&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)">
+
+<path fill="none" stroke="black" d="M925.39,-359.7C925.39,-352.41 925.39,-343.73 925.39,-335.54" style=""/>
+<polygon fill="black" stroke="black" points="928.89,-335.62 925.39,-325.62 921.89,-335.62 928.89,-335.62" style=""/>
+</g>
+</g>
+</svg>

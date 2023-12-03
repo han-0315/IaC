@@ -2,6 +2,7 @@
 해당 리포지토리는 Iac 관련 코드와 자료 정리를 위해 만들어졌습니다.
 
 ## Terraform
+Terraform Study 진행(T101-3기)
 
 ### AWS
 
@@ -20,5 +21,6 @@
 aws 완료 후 6월 업데이트 예정
 
 
+- [S3](./setup/gitlab-amazone2.sh)
 ## CloudFormation(AWS)
 
