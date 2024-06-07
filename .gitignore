@@ -36,3 +36,4 @@ override.tf.json
 
 *.crt
 *.key
+*/gitlab.yaml
