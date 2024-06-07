@@ -19,15 +19,7 @@ spec:
           image: nginx:1.14.2
           ports:
             - containerPort: 80
-          resources:
-            limits:
-              cpu: "0.5"
-              memory: "512Mi"
         - name: netshoot
           image: nicolaka/netshoot
           command: ["/bin/bash"]
           args: ["-c", "while true; do ping localhost; sleep 60;done"]
-          resources:
-            limits:
-              cpu: "0.5"
-              memory: "512Mi"
