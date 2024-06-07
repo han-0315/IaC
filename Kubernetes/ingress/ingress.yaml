@@ -4,16 +4,20 @@ metadata:
   name: two-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - www.handongmin.net
+    secretName: tls-secret
   rules:
-  - http:
+  - host: www.handongmin.net
+    http:
       paths:
-      - path: /run
+      - path: /test
         pathType: Prefix
         backend:
           service:
-            name: two
+            name: nginx-netshoot
             port:
               number: 80
