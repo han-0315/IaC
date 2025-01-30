@@ -1,0 +1,64 @@
+version: "3"
+services:
+  peer1:
+    image: linuxserver/wireguard
+    container_name: wg_peer1
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Seoul
+      - SERVERURL=peer1
+      - SERVERPORT=51820
+      - PEERS=1
+      - PEERDNS=auto
+      - INTERNAL_SUBNET=10.13.13.0
+    volumes:
+      - ./config/peer1:/config
+      - /lib/modules:/lib/modules
+    ports:
+      - 51820:51820/udp
+    networks:
+      testing_net:
+        ipv4_address: 172.20.0.2
+
+  peer2:
+    image: linuxserver/wireguard
+    container_name: wg_peer2
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Seoul
+      - SERVERURL=peer2
+      - SERVERPORT=51821
+      - PEERS=1
+      - PEERDNS=auto
+      - INTERNAL_SUBNET=10.13.14.0
+    volumes:
+      - ./config/peer2:/config
+      - /lib/modules:/lib/modules
+    ports:
+      - 51821:51821/udp
+    networks:
+      testing_net:
+        ipv4_address: 172.20.0.3
+
+  attack:
+    image: nicolaka/netshoot
+    command: ["sleep", "3600"]
+    container_name: attack
+    networks:
+      testing_net:
+        ipv4_address: 172.20.0.4
+
+networks:
+  testing_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
