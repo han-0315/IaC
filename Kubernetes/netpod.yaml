@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: net-pod
+spec:
+  nodeName: myk8s-control-plane
+  containers:
+  - name: netshoot-pod
+    image: nicolaka/netshoot
+    command: ["tail"]
+    args: ["-f", "/dev/null"]
+  terminationGracePeriodSeconds: 0

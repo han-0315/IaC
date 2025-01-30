@@ -1,0 +1,33 @@
+prometheus:
+  service:
+    type: NodePort
+    nodePort: 30001
+
+  prometheusSpec:
+    podMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
+    nodeSelector:
+      mynode: control-plane
+    tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Equal"
+        effect: "NoSchedule"
+
+grafana:
+  defaultDashboardsTimezone: Asia/Seoul
+  adminPassword: kans1234
+
+  service:
+    type: NodePort
+    nodePort: 30002
+  nodeSelector:
+    mynode: control-plane
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Equal"
+      effect: "NoSchedule"
+
+defaultRules:
+  create: false
+alertmanager:
+  enabled: false
